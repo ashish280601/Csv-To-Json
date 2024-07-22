@@ -1,5 +1,5 @@
 import "../../env.js"
-import fs from 'fs';
+import fs from "fs/promises";
 import path from 'path';
 
 // Check if CSV_FILE_PATH environment variable is defined
@@ -13,10 +13,10 @@ if (!csvFilePathEnv) {
 const csvFilePath = path.resolve(process.cwd(), csvFilePathEnv);
 
 // Function to parse the CSV file
-const parseCSV = () => {
+const parseCSV = async () => {
   try {
-    // Read the CSV file synchronously
-    const fileContent = fs.readFileSync(csvFilePath, 'utf-8');
+    // Read the CSV file asynchronously
+    const fileContent = await fs.readFile(csvFilePath, 'utf-8');
     
     // Split the file content into lines
     const lines = fileContent.split('\n').filter(line => line.trim() !== '');

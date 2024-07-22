@@ -6,7 +6,7 @@ const uploadData = async () => {
     const errors = [];
 
     try {
-        const records = parseCSV();
+        const records = await parseCSV();
 
         for (const record of records) {
             const {

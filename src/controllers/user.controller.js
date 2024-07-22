@@ -1,4 +1,4 @@
-import uploadData from "../middleware/dataUploader";;
+import uploadData from "../middleware/dataUploader.js";
 
 export default class UserController{
 
@@ -19,7 +19,7 @@ export default class UserController{
       res.status(200).json({
         data: uploadedData,
         message: 'Data successfully uploaded.',
-        status: 400,
+        status: 200,
         success: true
       });
     } catch (error) {
